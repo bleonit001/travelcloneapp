@@ -1,0 +1,114 @@
+<div class="search-card">
+  <!-- trip selector -->
+ 
+  <form (ngSubmit)="submitForm()" #flightForm="ngForm" class="search-form">
+    <div class="trip-toggle">
+    <label class="toggle" [class]="flightData.tripType === 'roundTrip'">
+      <input type="radio" name="tripType" [(ngModel)]="flightData.tripType" value="roundTrip" /> Kthyese
+    </label>
+    <label class="toggle" [class]="flightData.tripType === 'oneWay'">
+      <input type="radio" name="tripType" [(ngModel)]="flightData.tripType" value="oneWay" /> Një drejtim
+    </label>
+  </div>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Vendi juaj</label>
+        <select name="from" [(ngModel)]="flightData.from">
+          <option value="">Nga</option>
+          <option value="PRN">Prishtina</option>
+          <option value="ZRH">Zurich</option>
+          <option value="DUS">Dusseldorf</option>
+          <option value="FRA">Frankfurt</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Destinacioni</label>
+        <select name="to" [(ngModel)]="flightData.to">
+          <option value="">Për</option>
+           <option value="PRN">Prishtina</option>
+          <option value="ZRH">Zurich</option>
+          <option value="DUS">Dusseldorf</option>
+          <option value="FRA">Frankfurt</option>
+        </select>
+      </div>
+
+  <div class="field">
+  <label>{{ flightData.tripType === 'roundTrip' ? 'Nisja • Kthimi' : 'Nisja' }}</label>
+
+  <!-- ONE WAY -->
+  <input
+    *ngIf="flightData.tripType === 'oneWay'"
+    type="date"
+    name="departureDate"
+    [(ngModel)]="flightData.departureDate"
+  />
+
+  <!-- ROUND TRIP -->
+  <div *ngIf="flightData.tripType === 'roundTrip'" class="date-range">
+    <input
+      type="date"
+      name="departureDate"
+      [(ngModel)]="flightData.departureDate"
+    />
+    <span class="date-separator">•</span>
+    <input
+      type="date"
+      name="returnDate"
+      [(ngModel)]="flightData.returnDate"
+    />
+  </div>
+</div>
+<div class="field phone">
+  <label>Numëri telefonit</label>
+  <div class="phone-field">
+    <select name="phoneCode" [(ngModel)]="flightData.phoneCode">
+      <option value="+383">+383</option>
+      <option value="+41">+41</option>
+      <option value="+49">+49</option>
+    </select>
+    <input
+      name="phoneNumber"
+      [(ngModel)]="flightData.phoneNumber"
+      type="tel"
+      class="phoneNumber"
+      placeholder="Numri i telefonit"
+    />
+  </div>
+</div>
+
+      <div class="field">
+        <label>Të rritur</label>
+        <select name="adults" [(ngModel)]="flightData.adults">
+          <option value="">Ju lutem zgjidhni</option>
+          <option *ngFor="let a of [1,2,3,4,5,6,7,8]" [value]="a">{{a}}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Fëmijë (2 - 11 vjeç)</label>
+        <select name="children" [(ngModel)]="flightData.children">
+          <option value="">Ju lutem zgjidhni</option>
+          <option *ngFor="let c of [0,1,2,3]" [value]="c">{{c}}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Foshnje (0 - 2 vjeç)</label>
+        <select name="infants" [(ngModel)]="flightData.infants">
+          <option value="">Ju lutem zgjidhni</option>
+          <option *ngFor="let i of [0,1,2]" [value]="i">{{i}}</option>
+        </select>
+      </div>
+
+
+      <div class="field action">
+        <label>&nbsp;</label>
+        <button class="submit-btn" type="submit">Kërkoni ofertë</button>
+      </div>
+
+    </div>
+  </form>
+</div>   

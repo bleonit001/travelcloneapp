@@ -1,0 +1,119 @@
+:root {
+  --orange: #ff8d1a;
+  --purple: #4a0fbf;
+  --muted: #666;
+}
+
+/* reset */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background: #fff;
+ 
+}
+
+/* header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.logo { height: 38px; }
+.nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav a { text-decoration: none; color: #333; font-weight: 500; }
+.header-right { display: flex; gap: 12px; align-items: center; }
+
+/* call button */
+.call-btn {
+  background:orange;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255,141,26,0.18);
+  transition: background 0.2s ease;
+}
+
+
+/* hero */
+.hero-area {
+  background: linear-gradient(180deg, rgba(236,249,249,1) 0%, rgba(250,244,239,1) 100%);
+  padding: 48px 0 120px;
+}
+.hero-inner {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-left: 40px;
+}
+.hero-inner h1 { margin: 0 0 12px; font-size: 32px; font-weight: 700; }
+.subtitle {
+  color: #70757a;
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+/* route card */
+.route-card {
+  width: 520px;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin: 18px 0 34px;
+}
+.route-left, .route-right {
+  width: 120px;
+  background: #f6f6f7;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: left;
+}
+.airport-label { font-size: 12px; color: #777; }
+.airport-code { font-size: 20px; font-weight: 700; margin-top: 6px; }
+.route-middle { flex: 1; text-align: center; position: relative; }
+.plane-icon {
+  color: var(--orange);
+  font-size: 22px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+.flight-line {
+  height: 6px;
+  width: 70%;
+  margin: 0 auto 8px;
+  background: linear-gradient(90deg, var(--orange) 0%, #e9e9e9 100%);
+  border-radius: 6px;
+}
+.flight-duration {
+  font-size: 14px;
+  background: var(--orange);
+  color: #070707;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 15px;
+
+}

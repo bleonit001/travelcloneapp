@@ -1,0 +1,51 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <img src="https://hoisky.ch/hoisky-logo.svg" alt="Logo" class="logo" />
+    <nav class="nav">
+      <a href="#">Ballina</a>
+      <a href="#">Rezervimi</a>
+      <a href="#">Informacioni</a>
+      <a href="#">Kontakti</a>
+    </nav>
+
+    <div class="header-right">
+      <select class="lang">
+        <option value="sq">SQ</option>
+        <option value="en">EN</option>
+      </select>
+      <a class="call-btn" href="tel:+38344606999">Call  +383 44 606 999</a>
+    </div>
+  </div>
+</header>
+
+
+<main class="hero-area">
+  <div class="container hero-inner">
+    <h1>Le të gjejmë ofertat më të mira për ju!</h1>
+    <p class="subtitle">
+      Vendosni destinacionin tuaj të dëshiruar, datat e udhëtimit dhe numrin tuaj të telefonit, dhe ekipi ynë personalisht do të arrijë ofertat më të mira të fluturimit për ju.
+    </p>
+
+    <!-- flight summary card (top small white card with PRN -> DUS) -->
+    <div class="route-card">
+      <div class="route-left">
+        <div class="airport-label">Prishtina</div>
+        <div class="airport-code">PRN</div>
+      </div>
+
+      <div class="route-middle">
+
+        <div class="flight-line"> <img src="https://hoisky.ch/global-icons/flight-route.svg" alt="Logo" class="logo" /></div>
+        <div class="flight-duration">3 orë fluturim</div>
+      </div>
+
+      <div class="route-right">
+        <div class="airport-label">Dusseldorf</div>
+        <div class="airport-code">DUS</div>
+      </div>
+    </div>
+
+    <!-- main form component -->
+    <app-flight-form></app-flight-form>
+  </div>
+</main>

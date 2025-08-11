@@ -1,0 +1,153 @@
+.search-card {
+  background: transparent;
+  max-width: 1050px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.trip-toggle {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+  margin-top: 12px; /* pushes it down a bit */
+}
+.trip-toggle button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 2px solid orange;
+  background-color: #e00404;
+  color: var(--purple);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.trip-toggle button:hover {
+  background-color: #f5f5f5;
+}
+
+.trip-toggle button.active {
+  background-color: var(--purple);
+  color: white;
+  border-color: var(--purple);
+}
+.toggle {
+  gap: 8px;
+  display: flex;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle.active {
+  background-color: var(--purple);
+  color: white;
+  border-color: var(--purple);
+}
+.search-form {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(20,20,30,0.06);
+  padding: 20px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.field label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.field select,
+.field input[type="date"],
+.field input[type="tel"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  font-size: 14px;
+  background: #fff;
+}
+
+.phone .phone-row {
+  display: flex;
+  gap: 8px;
+}
+
+.phone .phone-row select {
+  min-width: 85px;
+}
+
+.submit-btn {
+  background: purple;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  flex:3;
+}
+.date-range {
+  display: flex;
+  gap: 8px;
+}
+
+.date-separator {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #777;
+  padding: 0 4px;
+}
+.date-picker {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+}
+.phone-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  height: 50px;
+  width: 100%; /* take full available width */
+}
+
+.phone-field select {
+  width: 80px; /* keep prefix small */
+  border: none;
+  outline: none;
+  padding: 0 8px;
+  font-size: 16px;
+  background: #f9f9f9;
+  height: 100%;
+  cursor: pointer;
+}
+
+.phone-field input {
+  flex: 1; /* stretch to max available width */
+  min-width: 250px; /* ensure it's long enough even in small containers */
+  border: none;
+  outline: none;
+  padding: 0 14px;
+  font-size: 18px; /* bigger font for better readability */
+  height: 100%;
+}
+
+.phoneNumber::placeholder {
+  color: #aaa;
+}
