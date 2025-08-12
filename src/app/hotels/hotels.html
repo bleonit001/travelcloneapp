@@ -1,0 +1,30 @@
+<section class="hotel-section">
+  <div class="hotel-header">
+    <h2>Hotelet më të mira</h2>
+    <p class="subtitle">Rezervoni hotele kudo në botë</p>
+  </div>
+
+  <div class="tabs">
+    <button
+      *ngFor="let c of countries"
+      (click)="setCountry(c.key)"
+      [class.active]="c.key === activeCountry"
+      class="tab"
+    >
+      {{ c.label }}
+    </button>
+  </div>
+
+  <div class="hotel-grid">
+    <article class="hotel-card" *ngFor="let h of filteredHotels()">
+      <div class="card-image">
+        <img [src]="h.image" [alt]="h.name" loading="lazy" />
+      </div>
+
+      <div class="card-body">
+        <h3 class="hotel-name">🏨 {{ h.name }}</h3>
+        <a class="hotel-location" href="#">{{ h.location }}</a>
+      </div>
+    </article>
+  </div>
+</section>

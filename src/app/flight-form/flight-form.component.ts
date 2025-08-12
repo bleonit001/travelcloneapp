@@ -51,6 +51,8 @@ export class FlightFormComponent implements AfterViewInit {
     this.itiInstance = intlTelInput(this.phoneInput.nativeElement, options);
   }
 
+
+  
 submitForm() {
   // Get only the dial code (e.g., 383 for Kosovo)
   const dialCode = this.itiInstance.getSelectedCountryData().dialCode;
