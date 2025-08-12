@@ -16,22 +16,46 @@
       <div class="field">
         <label>Vendi juaj</label>
         <select name="from" [(ngModel)]="flightData.from">
-          <option value="">Nga</option>
-          <option value="PRN">Prishtina</option>
-          <option value="ZRH">Zurich</option>
-          <option value="DUS">Dusseldorf</option>
-          <option value="FRA">Frankfurt</option>
+        <option value="">Nga</option>
+        <option value="PRN">Prishtina</option>
+        <option value="ZRH">Zurich</option>
+        <option value="DUS">Düsseldorf</option>
+        <option value="FRA">Frankfurt</option>
+        <option value="VIE">Vienna</option>
+        <option value="LHR">London Heathrow</option>
+        <option value="LGW">London Gatwick</option>
+        <option value="STN">London Stansted</option>
+        <option value="CDG">Paris Charles de Gaulle</option>
+        <option value="ORY">Paris Orly</option>
+        <option value="AMS">Amsterdam Schiphol</option>
+        <option value="BRU">Brussels</option>
+        <option value="MUC">Munich</option>
+        <option value="HAM">Hamburg</option>
+        <option value="BER">Berlin Brandenburg</option>
+        <option value="IST">Istanbul</option>
         </select>
       </div>
 
       <div class="field">
         <label>Destinacioni</label>
         <select name="to" [(ngModel)]="flightData.to">
-          <option value="">Për</option>
-           <option value="PRN">Prishtina</option>
-          <option value="ZRH">Zurich</option>
-          <option value="DUS">Dusseldorf</option>
-          <option value="FRA">Frankfurt</option>
+        <option value="">Për</option>
+        <option value="PRN">Prishtina</option>
+        <option value="ZRH">Zurich</option>
+        <option value="DUS">Düsseldorf</option>
+        <option value="FRA">Frankfurt</option>
+        <option value="VIE">Vienna</option>
+        <option value="LHR">London Heathrow</option>
+        <option value="LGW">London Gatwick</option>
+        <option value="STN">London Stansted</option>
+        <option value="CDG">Paris Charles de Gaulle</option>
+        <option value="ORY">Paris Orly</option>
+        <option value="AMS">Amsterdam Schiphol</option>
+        <option value="BRU">Brussels</option>
+        <option value="MUC">Munich</option>
+        <option value="HAM">Hamburg</option>
+        <option value="BER">Berlin Brandenburg</option>
+        <option value="IST">Istanbul</option>
         </select>
       </div>
 
@@ -64,12 +88,8 @@
 <div class="field phone">
   <label>Numëri telefonit</label>
   <div class="phone-field">
-    <select name="phoneCode" [(ngModel)]="flightData.phoneCode">
-      <option value="+383">+383</option>
-      <option value="+41">+41</option>
-      <option value="+49">+49</option>
-    </select>
     <input
+      #phoneInput
       name="phoneNumber"
       [(ngModel)]="flightData.phoneNumber"
       type="tel"
@@ -77,8 +97,8 @@
       placeholder="Numri i telefonit"
     />
   </div>
-</div>
 
+</div>
       <div class="field">
         <label>Të rritur</label>
         <select name="adults" [(ngModel)]="flightData.adults">
@@ -91,7 +111,7 @@
         <label>Fëmijë (2 - 11 vjeç)</label>
         <select name="children" [(ngModel)]="flightData.children">
           <option value="">Ju lutem zgjidhni</option>
-          <option *ngFor="let c of [0,1,2,3]" [value]="c">{{c}}</option>
+          <option *ngFor="let c of [0,1,2,3,4,5,6,7,8]" [value]="c">{{c}}</option>
         </select>
       </div>
 
@@ -99,7 +119,7 @@
         <label>Foshnje (0 - 2 vjeç)</label>
         <select name="infants" [(ngModel)]="flightData.infants">
           <option value="">Ju lutem zgjidhni</option>
-          <option *ngFor="let i of [0,1,2]" [value]="i">{{i}}</option>
+          <option *ngFor="let i of [0,1,2,3,4,5,6,7,8]" [value]="i">{{i}}</option>
         </select>
       </div>
 

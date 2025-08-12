@@ -1,3 +1,4 @@
+/* Keep your existing styles */
 .search-card {
   background: transparent;
   max-width: 1050px;
@@ -9,7 +10,7 @@
   justify-content: flex-start;
   gap: 14px;
   margin-bottom: 16px;
-  margin-top: 12px; /* pushes it down a bit */
+  margin-top: 12px;
 }
 .trip-toggle button {
   padding: 8px 16px;
@@ -20,11 +21,9 @@
   font-weight: 500;
   cursor: pointer;
 }
-
 .trip-toggle button:hover {
   background-color: #f5f5f5;
 }
-
 .trip-toggle button.active {
   background-color: var(--purple);
   color: white;
@@ -41,7 +40,6 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
 .toggle.active {
   background-color: var(--purple);
   color: white;
@@ -58,14 +56,12 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
-
 .field label {
   font-size: 13px;
   color: #777;
   margin-bottom: 6px;
   display: block;
 }
-
 .field select,
 .field input[type="date"],
 .field input[type="tel"] {
@@ -76,16 +72,13 @@
   font-size: 14px;
   background: #fff;
 }
-
 .phone .phone-row {
   display: flex;
   gap: 8px;
 }
-
 .phone .phone-row select {
   min-width: 85px;
 }
-
 .submit-btn {
   background: purple;
   color: #ffffff;
@@ -94,13 +87,12 @@
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  flex:3;
+  flex: 3;
 }
 .date-range {
   display: flex;
   gap: 8px;
 }
-
 .date-separator {
   display: flex;
   align-items: center;
@@ -116,38 +108,65 @@
   font-size: 14px;
   cursor: pointer;
 }
+/* Container for the phone input */
 .phone-field {
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+/* /* Override intl-tel-input styles */
+.iti {
+  width: 100%;
+  font-family: inherit;
+  position: relative; /* needed for dropdown positioning */
+}
+
+/* Flag dropdown area */
+.iti__flag-container {
+  background-color: #f9f9f9;
   border: 1px solid #e6e6e6;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Selected flag area */
+.iti__selected-flag {
+  padding: 0 10px;
+  height: 50px; /* match input height */
+  display: flex;
+  align-items: center;
+}
+
+/* Flag icon spacing */
+.iti__selected-flag .iti__flag {
+  margin-right: 6px;
+}
+
+/* Country list dropdown */
+.iti__country-list {
   border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
+  font-family: inherit;
+  width: auto !important;   /* prevent full width */
+  min-width: 250px;         /* reasonable minimum */
+  max-width: 320px;         /* prevent it from being too wide */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  position: absolute;       /* ensures it sits right below the input */
+  left: 0;
+  z-index: 1000;
+}
+
+/* Phone number input itself */
+.iti input {
   height: 50px;
-  width: 100%; /* take full available width */
-}
-
-.phone-field select {
-  width: 80px; /* keep prefix small */
-  border: none;
-  outline: none;
-  padding: 0 8px;
-  font-size: 16px;
-  background: #f9f9f9;
-  height: 100%;
-  cursor: pointer;
-}
-
-.phone-field input {
-  flex: 1; /* stretch to max available width */
-  min-width: 250px; /* ensure it's long enough even in small containers */
-  border: none;
-  outline: none;
   padding: 0 14px;
-  font-size: 18px; /* bigger font for better readability */
-  height: 100%;
+  border: 1px solid #e6e6e6;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  flex: 1;
 }
 
-.phoneNumber::placeholder {
+/* Placeholder style */
+.iti input::placeholder {
   color: #aaa;
 }
