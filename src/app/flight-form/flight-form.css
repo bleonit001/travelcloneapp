@@ -111,62 +111,93 @@
 /* Container for the phone input */
 .phone-field {
   display: flex;
-  align-items: center;
   width: 100%;
+  align-items: stretch;
 }
 
-/* /* Override intl-tel-input styles */
+/* intl-tel-input container */
 .iti {
-  width: 100%;
+  width: 100% !important;
   font-family: inherit;
-  position: relative; /* needed for dropdown positioning */
+  box-sizing: border-box;
+  display: flex;
 }
 
 /* Flag dropdown area */
 .iti__flag-container {
   background-color: #f9f9f9;
   border: 1px solid #e6e6e6;
+  border-right: none; /* remove duplicate border between flag & input */
   border-radius: 8px 0 0 8px;
-}
-
-/* Selected flag area */
-.iti__selected-flag {
-  padding: 0 10px;
-  height: 50px; /* match input height */
   display: flex;
   align-items: center;
+  padding: 0 8px;
+  
 }
 
-/* Flag icon spacing */
-.iti__selected-flag .iti__flag {
-  margin-right: 6px;
+/* Selected flag */
+.iti__selected-flag {
+  padding: 0;
+  height: 48px; /* match input height */
+  display: flex;
+  align-items: center;
 }
 
 /* Country list dropdown */
 .iti__country-list {
   border-radius: 8px;
   font-family: inherit;
-  width: auto !important;   /* prevent full width */
-  min-width: 250px;         /* reasonable minimum */
-  max-width: 320px;         /* prevent it from being too wide */
+  min-width: 250px;
+  max-width: 320px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  position: absolute;       /* ensures it sits right below the input */
-  left: 0;
   z-index: 1000;
 }
 
-/* Phone number input itself */
+/* Phone number input */
 .iti input {
-  height: 50px;
-  padding: 0 14px;
+  width: 100% !important;
+  padding: 12px 14px;
   border: 1px solid #e6e6e6;
-  border-left: none;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0; /* right corners rounded */
   font-size: 14px;
-  flex: 1;
+  box-sizing: border-box;
+  height: 48px; /* match other inputs */
 }
 
-/* Placeholder style */
+/* Placeholder color */
 .iti input::placeholder {
   color: #aaa;
+}
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .trip-toggle {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .date-range {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .phone .phone-row {
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+  }
 }

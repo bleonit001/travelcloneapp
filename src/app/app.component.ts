@@ -12,6 +12,10 @@ import { HotelsComponent } from './hotels/hotels';
 })
 export class AppComponent {
   title = 'flight-booking-app';
+ menuOpen = false;
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
   
 }

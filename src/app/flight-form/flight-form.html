@@ -62,7 +62,7 @@
   <div class="field">
   <label>{{ flightData.tripType === 'roundTrip' ? 'Nisja • Kthimi' : 'Nisja' }}</label>
 
-  <!-- ONE WAY -->
+  
   <input
     *ngIf="flightData.tripType === 'oneWay'"
     type="date"
@@ -70,7 +70,6 @@
     [(ngModel)]="flightData.departureDate"
   />
 
-  <!-- ROUND TRIP -->
   <div *ngIf="flightData.tripType === 'roundTrip'" class="date-range">
     <input
       type="date"

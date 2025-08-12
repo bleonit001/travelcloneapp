@@ -5,8 +5,6 @@ import moment from 'moment';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import intlTelInput from 'intl-tel-input';
 
-// The default export of intl-tel-input is the initializer function
-// We define our own types here to avoid TS errors.
 type IntlTelInputInstance = ReturnType<typeof intlTelInput>;
 interface ExtendedOptions {
   initialCountry?: string;
@@ -21,8 +19,9 @@ interface ExtendedOptions {
   styleUrls: ['./flight-form.css']
 })
 export class FlightFormComponent implements AfterViewInit {
+  moment = moment;
   flightData = {
-    tripType: 'roundTrip',
+    tripType: 'roundTrip', // 'oneWay' or 'roundTrip'
     from: '',
     to: '',
     departureDate: '',
@@ -34,6 +33,7 @@ export class FlightFormComponent implements AfterViewInit {
     phoneNumber: ''
   };
 
+  // moment date range
   selected: { startDate: moment.Moment; endDate?: moment.Moment } = {
     startDate: moment(),
     endDate: moment()
@@ -51,31 +51,38 @@ export class FlightFormComponent implements AfterViewInit {
     this.itiInstance = intlTelInput(this.phoneInput.nativeElement, options);
   }
 
+  // Called when date changes
+  updateFormattedDates() {
+    if (this.flightData.tripType === 'oneWay') {
+      this.flightData.departureDate = this.selected.startDate.format('DD/MM/YYYY');
+    } else {
+      this.flightData.departureDate = this.selected.startDate.format('DD/MM/YYYY');
+      this.flightData.returnDate = this.selected.endDate?.format('DD/MM/YYYY') || '';
+    }
+  }
 
-  
-submitForm() {
-  // Get only the dial code (e.g., 383 for Kosovo)
+ submitForm() {
   const dialCode = this.itiInstance.getSelectedCountryData().dialCode;
-
-  // Get the raw number without prefix (e.g., 44123456)
   const nationalNumber = this.phoneInput.nativeElement.value;
-
-  // Combine them into one string
   const fullPhoneNumber = `+${dialCode} ${nationalNumber}`;
 
-  // Update flightData
   this.flightData.phoneCode = `+${dialCode}`;
   this.flightData.phoneNumber = nationalNumber;
 
-   console.log(' Form submitted:', {
+  console.log('Form submitted:', {
     tripType: this.flightData.tripType,
     from: this.flightData.from,
     to: this.flightData.to,
-    departureDate: this.flightData.departureDate,
-    returnDate: this.flightData.returnDate,
+    departureDate: this.flightData.departureDate
+      ? moment(this.flightData.departureDate).format('DD.MM.YYYY')
+      : '',
+    returnDate: this.flightData.returnDate
+      ? moment(this.flightData.returnDate).format('DD.MM.YYYY')
+      : '',
     adults: this.flightData.adults,
     children: this.flightData.children,
     infants: this.flightData.infants,
-    fullPhoneNumber // only the complete phone number
+    fullPhoneNumber
   });
-}}
+}
+}
