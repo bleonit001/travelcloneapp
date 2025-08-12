@@ -67,7 +67,7 @@ submitForm() {
   this.flightData.phoneCode = `+${dialCode}`;
   this.flightData.phoneNumber = nationalNumber;
 
-   console.log('📦 Form submitted:', {
+   console.log(' Form submitted:', {
     tripType: this.flightData.tripType,
     from: this.flightData.from,
     to: this.flightData.to,
